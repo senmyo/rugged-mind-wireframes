@@ -1,0 +1,1059 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rugged Mind 商品詳細ページ 簡易ワイヤー</title>
+  <style>
+    :root {
+      --ink: #111;
+      --muted: #666;
+      --line: #111;
+      --soft-line: #d7d7d7;
+      --paper: #fff;
+      --pale: #f4f4f4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wire-label {
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      justify-content: space-between;
+      padding: 14px 24px;
+      font-size: 12px;
+      letter-spacing: .03em;
+    }
+
+    .wire-label strong {
+      font-size: 13px;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--line);
+      padding: 12px 28px 18px;
+    }
+
+    .header-top {
+      color: var(--muted);
+      font-size: 12px;
+      margin: 0 auto 12px;
+      max-width: 1240px;
+    }
+
+    .header-inner {
+      align-items: center;
+      display: grid;
+      gap: 22px;
+      grid-template-columns: 190px 1fr 140px;
+      margin: 0 auto;
+      max-width: 1240px;
+    }
+
+    .brand {
+      border: 1px solid var(--line);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      padding: 10px 12px;
+      text-align: center;
+    }
+
+    .global-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 18px;
+      justify-content: center;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .header-tools {
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .tool-box {
+      border: 1px solid var(--line);
+      font-size: 12px;
+      padding: 8px 10px;
+    }
+
+    .secondary-nav {
+      border-top: 1px solid var(--soft-line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      justify-content: center;
+      margin: 16px auto 0;
+      max-width: 1240px;
+      padding-top: 14px;
+      font-size: 12px;
+    }
+
+    .page {
+      margin: 0 auto;
+      max-width: 1240px;
+      padding: 28px 28px 88px;
+    }
+
+    .breadcrumb {
+      color: var(--muted);
+      font-size: 12px;
+      margin: 0 0 28px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 56px;
+      grid-template-columns: minmax(0, 1.16fr) minmax(360px, .84fr);
+      align-items: start;
+    }
+
+    .gallery {
+      display: grid;
+      gap: 16px;
+    }
+
+    .image-box {
+      align-items: center;
+      background:
+        linear-gradient(135deg, transparent calc(50% - 1px), #c8c8c8 calc(50% - 1px), #c8c8c8 calc(50% + 1px), transparent calc(50% + 1px)),
+        linear-gradient(45deg, transparent calc(50% - 1px), #c8c8c8 calc(50% - 1px), #c8c8c8 calc(50% + 1px), transparent calc(50% + 1px)),
+        var(--pale);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      display: flex;
+      justify-content: center;
+      min-height: 120px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .image-box span {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 10px;
+    }
+
+    .main-image {
+      aspect-ratio: 1 / 1;
+      min-height: 640px;
+    }
+
+    .thumb-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .thumb {
+      aspect-ratio: 4 / 3;
+      min-height: auto;
+      padding: 10px;
+    }
+
+    .thumb span {
+      font-size: 11px;
+      padding: 5px 7px;
+    }
+
+    .product-panel {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 20px;
+    }
+
+    .panel-block {
+      border-bottom: 1px solid var(--line);
+      padding: 24px 0;
+    }
+
+    .panel-block:last-child {
+      border-bottom: 0;
+    }
+
+    .panel-block:first-child {
+      padding-top: 0;
+    }
+
+    .series {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .09em;
+      margin: 0 0 12px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1.32;
+      margin: 0 0 12px;
+    }
+
+    .price {
+      font-size: 20px;
+      margin: 0 0 18px;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .option-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .size-grid {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .choice-grid {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-bottom: 18px;
+    }
+
+    .choice,
+    .size {
+      border: 1px solid var(--line);
+      font-size: 12px;
+      padding: 8px 4px;
+      text-align: center;
+    }
+
+    .quick-note {
+      border: 1px solid var(--soft-line);
+      color: var(--muted);
+      font-size: 12px;
+      margin: 14px 0 18px;
+      padding: 10px;
+    }
+
+    .summary {
+      border-top: 1px solid var(--soft-line);
+      display: grid;
+      margin-top: 18px;
+    }
+
+    .summary-row {
+      border-bottom: 1px solid var(--soft-line);
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 92px 1fr;
+      padding: 11px 0;
+    }
+
+    .summary-row dt {
+      color: var(--muted);
+      font-size: 12px;
+      margin: 0;
+    }
+
+    .summary-row dd {
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .actions {
+      display: grid;
+      gap: 10px;
+    }
+
+    .button {
+      align-items: center;
+      border: 1px solid var(--line);
+      display: flex;
+      font-size: 14px;
+      font-weight: 600;
+      justify-content: center;
+      min-height: 50px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+
+    .button.primary {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .support-links {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mini-card {
+      border: 1px solid var(--soft-line);
+      padding: 13px;
+    }
+
+    .mini-card strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+
+    .mini-card span {
+      color: var(--muted);
+      display: block;
+      font-size: 12px;
+    }
+
+    .section {
+      border-top: 1px solid var(--line);
+      margin-top: 64px;
+      padding-top: 34px;
+    }
+
+    .section-head {
+      margin-bottom: 22px;
+    }
+
+    .section-kicker {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .08em;
+      margin: 0 0 6px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 23px;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .feature-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .feature-card {
+      border: 1px solid var(--line);
+      min-height: 170px;
+      padding: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 16px;
+      margin: 0 0 12px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .concept-panel {
+      border: 1px solid var(--line);
+      display: grid;
+      gap: 0;
+      grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+    }
+
+    .concept-panel .image-box {
+      border: 0;
+      border-right: 1px solid var(--line);
+      min-height: 380px;
+    }
+
+    .concept-copy {
+      display: grid;
+      gap: 18px;
+      padding: 28px;
+    }
+
+    .concept-copy h3 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .copy-box {
+      border: 1px solid var(--soft-line);
+      min-height: 108px;
+      padding: 16px;
+    }
+
+    .copy-box span {
+      color: var(--muted);
+      display: block;
+      font-size: 13px;
+    }
+
+    .concept-actions {
+      display: grid;
+      gap: 10px;
+      max-width: 280px;
+    }
+
+    .spec-table {
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .spec-row {
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 120px 1fr;
+      min-height: 64px;
+      padding: 16px 20px 16px 0;
+    }
+
+    .spec-row:nth-child(odd) {
+      border-right: 1px solid var(--line);
+    }
+
+    .spec-row:nth-child(even) {
+      padding-left: 22px;
+    }
+
+    .spec-label {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .spec-value {
+      font-size: 14px;
+    }
+
+    .service-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .service-card {
+      border: 1px solid var(--line);
+      display: grid;
+      gap: 16px;
+      grid-template-rows: auto 1fr;
+      min-height: 210px;
+      padding: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .wide-cta {
+      border: 1px solid var(--line);
+      display: grid;
+      gap: 24px;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      padding: 24px;
+    }
+
+    .wide-cta h3 {
+      font-size: 20px;
+      margin: 0 0 8px;
+    }
+
+    .wide-cta p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .related-item {
+      border: 1px solid var(--line);
+      padding: 12px;
+    }
+
+    .related-thumb {
+      aspect-ratio: 1 / 1;
+      margin-bottom: 12px;
+      min-height: auto;
+    }
+
+    .related-item h3 {
+      font-size: 14px;
+      margin: 0 0 4px;
+    }
+
+    .related-item p {
+      color: var(--muted);
+      font-size: 12px;
+      margin: 0;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      margin-top: 84px;
+      padding: 28px;
+    }
+
+    .footer-inner {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      margin: 0 auto;
+      max-width: 1240px;
+    }
+
+    .footer-col {
+      border: 1px solid var(--soft-line);
+      min-height: 110px;
+      padding: 16px;
+      font-size: 13px;
+    }
+
+    .footer-col.is-wide {
+      grid-column: span 2;
+    }
+
+    .footer-col strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer-col span,
+    .footer-col a {
+      color: var(--muted);
+      display: block;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .payment-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .payment-row span {
+      border: 1px solid var(--soft-line);
+      color: var(--ink);
+      display: inline-block;
+      margin: 0;
+      padding: 5px 8px;
+    }
+
+    @media (max-width: 980px) {
+      .header-inner,
+      .hero,
+      .wide-cta,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .global-nav {
+        justify-content: flex-start;
+      }
+
+      .secondary-nav {
+        justify-content: flex-start;
+      }
+
+      .header-tools {
+        justify-content: flex-start;
+      }
+
+      .product-panel {
+        position: static;
+      }
+
+      .main-image {
+        min-height: 0;
+      }
+
+      .feature-grid,
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .concept-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .concept-panel .image-box {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .spec-table {
+        grid-template-columns: 1fr;
+      }
+
+      .spec-row:nth-child(odd),
+      .spec-row:nth-child(even) {
+        border-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wire-label,
+      .site-header,
+      .page,
+      .site-footer {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .thumb-grid,
+      .choice-grid,
+      .size-grid,
+      .feature-grid,
+      .related-grid,
+      .support-links {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feature-grid,
+      .related-grid,
+      .support-links,
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .main-image {
+        min-height: 0;
+        min-width: 0;
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .gallery,
+      .thumb-grid {
+        min-width: 0;
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .summary-row,
+      .spec-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .footer-col.is-wide {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wire-label">
+    <strong>Rugged Mind 商品詳細ページ 簡易ワイヤー</strong>
+    <span>白黒ワイヤー / 画像はすべて配置ボックス / 2026.07.07</span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-top">since 2022</div>
+    <div class="header-inner">
+      <a class="brand" href="#">RUGGED MIND</a>
+      <nav class="global-nav" aria-label="主要ナビゲーション">
+        <a href="#">HOME</a>
+        <a href="#">STRUCTURE</a>
+        <a href="#">Sign of Zodiac</a>
+        <a href="#">Chain Rings</a>
+        <a href="#">Rebuilding</a>
+        <a href="#">Twist</a>
+        <a href="#">Studs</a>
+        <a href="#">FOR one PRODUCT</a>
+      </nav>
+      <div class="header-tools">
+        <span class="tool-box">検索</span>
+        <span class="tool-box">カート</span>
+      </div>
+    </div>
+    <nav class="secondary-nav" aria-label="補助ナビゲーション">
+      <a href="/pages/brand-story">コンセプト</a>
+      <a href="/pages/stores">取扱店</a>
+      <a href="/pages/faq">よくある質問</a>
+      <a href="/blogs/news">ニュース・掲載情報</a>
+      <a href="/pages/contact">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <p class="breadcrumb">HOME / Twist / Twist - 8R09KK</p>
+
+    <section class="hero" aria-label="商品概要">
+      <div class="gallery">
+        <div class="image-box main-image"><span>商品メイン画像</span></div>
+        <div class="thumb-grid" aria-label="商品画像一覧">
+          <div class="image-box thumb"><span>正面</span></div>
+          <div class="image-box thumb"><span>着用</span></div>
+          <div class="image-box thumb"><span>側面</span></div>
+          <div class="image-box thumb"><span>質感アップ</span></div>
+          <div class="image-box thumb"><span>厚み</span></div>
+          <div class="image-box thumb"><span>付属品</span></div>
+          <div class="image-box thumb"><span>別角度</span></div>
+          <div class="image-box thumb"><span>動画枠</span></div>
+        </div>
+      </div>
+
+      <aside class="product-panel">
+        <div class="panel-block">
+          <p class="series">RUGGED MIND / Twist</p>
+          <h1>Twist - 8R09KK</h1>
+          <p class="price">¥616,000 <small>税込</small></p>
+          <p class="lead">商品説明リード文</p>
+        </div>
+
+        <div class="panel-block">
+          <div class="option-label">
+            <strong>素材・仕上げ</strong>
+            <a href="#">素材相談</a>
+          </div>
+          <div class="choice-grid">
+            <span class="choice">750YG</span>
+            <span class="choice">750WG</span>
+            <span class="choice">仕上げ違い</span>
+          </div>
+
+          <div class="option-label">
+            <strong>サイズを選択</strong>
+            <a href="#">サイズガイド</a>
+          </div>
+          <div class="size-grid">
+            <span class="size">#10</span>
+            <span class="size">#11</span>
+            <span class="size">#12</span>
+            <span class="size">#13</span>
+            <span class="size">#14</span>
+            <span class="size">#15</span>
+            <span class="size">#16</span>
+            <span class="size">#17</span>
+            <span class="size">#18</span>
+            <span class="size">#19</span>
+          </div>
+          <div class="quick-note">在庫・受注状況 / 店舗確認 / サイズ相談</div>
+          <dl class="summary">
+            <div class="summary-row">
+              <dt>納期</dt>
+              <dd>約1.5ヶ月 / 完全受注生産</dd>
+            </div>
+            <div class="summary-row">
+              <dt>素材</dt>
+              <dd>750YG / 鏡面仕上げ</dd>
+            </div>
+            <div class="summary-row">
+              <dt>サイズ直し</dt>
+              <dd>±3まで対応</dd>
+            </div>
+            <div class="summary-row">
+              <dt>付属品</dt>
+              <dd>専用ケース / 保証書</dd>
+            </div>
+            <div class="summary-row">
+              <dt>商品番号</dt>
+              <dd>KR08R09KK</dd>
+            </div>
+            <div class="summary-row">
+              <dt>返品・交換</dt>
+              <dd>受注生産の条件確認</dd>
+            </div>
+            <div class="summary-row">
+              <dt>ギフト</dt>
+              <dd>ケース / 配送相談</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="panel-block">
+          <div class="actions">
+            <a class="button primary" href="#">カートに追加する</a>
+            <a class="button" href="#">購入前に相談する</a>
+            <a class="button" href="#">取扱店で確認する</a>
+          </div>
+        </div>
+
+        <div class="panel-block">
+          <div class="support-links">
+            <div class="mini-card">
+              <strong>サイズガイド</strong>
+            </div>
+            <div class="mini-card">
+              <strong>店舗在庫</strong>
+            </div>
+            <div class="mini-card">
+              <strong>返品・交換</strong>
+            </div>
+            <div class="mini-card">
+              <strong>ギフト対応</strong>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Product Value</p>
+          <h2>商品の見どころ</h2>
+        </div>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>デザインの特徴</h3>
+        </article>
+        <article class="feature-card">
+          <h3>素材・仕上げ</h3>
+        </article>
+        <article class="feature-card">
+          <h3>職人の手仕事</h3>
+        </article>
+        <article class="feature-card">
+          <h3>着用・サイズ感</h3>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Brand Concept</p>
+          <h2>ブランドコンセプト</h2>
+        </div>
+      </div>
+      <div class="concept-panel">
+        <div class="image-box"><span>ブランドコンセプト画像</span></div>
+        <div class="concept-copy">
+          <h3>ブランドコンセプト見出し</h3>
+          <div class="copy-box">
+            <span>ブランドコンセプト本文抜粋</span>
+          </div>
+          <div class="concept-actions">
+            <a class="button primary" href="/pages/brand-story">ブランドコンセプトを見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Specification</p>
+          <h2>仕様・納期</h2>
+        </div>
+      </div>
+      <div class="spec-table">
+        <div class="spec-row">
+          <div class="spec-label">型番</div>
+          <div class="spec-value">KR08R09KK</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">素材</div>
+          <div class="spec-value">750YG / 鏡面仕上げ</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">リング幅</div>
+          <div class="spec-value">約3mm</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">サイズ</div>
+          <div class="spec-value">#10から#23</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">サイズ直し</div>
+          <div class="spec-value">±3まで対応</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">納期</div>
+          <div class="spec-value">約1.5ヶ月 / 年末年始・お盆前後を除く</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">付属品</div>
+          <div class="spec-value">専用ケース / 保証書</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">注文前確認</div>
+          <div class="spec-value">返品・変更条件</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">在庫・受注</div>
+          <div class="spec-value">在庫有無 / 受注生産 / 店舗確認</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">ギフト</div>
+          <div class="spec-value">専用ケース / 配送相談</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wide-cta">
+        <div>
+          <h3>購入前相談・取扱店確認</h3>
+          <p>素材・サイズ・納期・店舗在庫を確認</p>
+        </div>
+        <a class="button primary" href="#">相談・来店確認へ</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Care / Service</p>
+          <h2>ケア・サービス</h2>
+        </div>
+      </div>
+      <div class="service-grid">
+        <article class="service-card">
+          <h3>保証・付属品</h3>
+        </article>
+        <article class="service-card">
+          <h3>修理・メンテナンス</h3>
+        </article>
+        <article class="service-card">
+          <h3>配送・支払い</h3>
+        </article>
+        <article class="service-card">
+          <h3>ギフト・返品条件</h3>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Related</p>
+          <h2>関連商品</h2>
+        </div>
+      </div>
+      <div class="related-grid">
+        <article class="related-item">
+          <div class="image-box related-thumb"><span>関連商品画像</span></div>
+          <h3>Twist 商品A</h3>
+          <p>同シリーズ</p>
+        </article>
+        <article class="related-item">
+          <div class="image-box related-thumb"><span>関連商品画像</span></div>
+          <h3>Twist 商品B</h3>
+          <p>素材違い</p>
+        </article>
+        <article class="related-item">
+          <div class="image-box related-thumb"><span>関連商品画像</span></div>
+          <h3>Chain Rings</h3>
+          <p>比較検討</p>
+        </article>
+        <article class="related-item">
+          <div class="image-box related-thumb"><span>取扱店画像</span></div>
+          <h3>取扱店で相談</h3>
+          <p>実物確認へ</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <strong>商品カテゴリ</strong>
+        <a href="#">HOME</a>
+        <a href="#">STRUCTURE</a>
+        <a href="#">Sign of Zodiac</a>
+        <a href="#">Chain Rings</a>
+        <a href="#">Rebuilding</a>
+        <a href="#">Twist</a>
+        <a href="#">Studs</a>
+        <a href="#">FOR one PRODUCT</a>
+      </div>
+      <div class="footer-col">
+        <strong>ブランド情報</strong>
+        <a href="#">RUGGED MIND Brandsite</a>
+        <a href="/pages/brand-story">コンセプト</a>
+        <a href="/blogs/news">ニュース・掲載情報</a>
+        <a href="/pages/stores">取扱店</a>
+        <a href="/pages/faq">よくある質問</a>
+      </div>
+      <div class="footer-col">
+        <strong>相談・ケア</strong>
+        <a href="/pages/contact">お問い合わせ</a>
+        <a href="#">https://rugged-mind.com/contact</a>
+        <a href="#">RUGGED MIND Instagram</a>
+        <a href="#">アフターサービスについて</a>
+      </div>
+      <div class="footer-col">
+        <strong>会社・規約</strong>
+        <a href="#">会社概要</a>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">特定商取引法に関する表記</a>
+      </div>
+      <div class="footer-col is-wide">
+        <strong>決済方法</strong>
+        <div class="payment-row">
+          <span>American Express</span>
+          <span>Apple Pay</span>
+          <span>Google Pay</span>
+          <span>Mastercard</span>
+          <span>PayPal</span>
+          <span>Visa</span>
+        </div>
+      </div>
+      <div class="footer-col is-wide">
+        <strong>コピーライト</strong>
+        <span>© 2026, RUGGED MIND / Powered by Shopify</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

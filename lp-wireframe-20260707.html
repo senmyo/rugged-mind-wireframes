@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RUGGED MIND | Sign of Zodiac</title>
   <style>
+    @font-face {
+      font-family: "Manuale";
+      font-display: swap;
+      font-style: normal;
+      font-weight: 300;
+      src:
+        url("https://www.ruggedmind-shop.com/cdn/fonts/manuale/manuale_n3.0baac6564b6ed416af2c179e69ad2689bd829f1a.woff2") format("woff2"),
+        url("https://www.ruggedmind-shop.com/cdn/fonts/manuale/manuale_n3.3b80020a9032b8fdf9b79d72323aacd37cfccc1f.woff") format("woff");
+    }
+
+    @font-face {
+      font-family: "Manuale";
+      font-display: swap;
+      font-style: normal;
+      font-weight: 700;
+      src:
+        url("https://www.ruggedmind-shop.com/cdn/fonts/manuale/manuale_n7.3ba047f22d4f96763fb98130d717aa23f3693e91.woff2") format("woff2"),
+        url("https://www.ruggedmind-shop.com/cdn/fonts/manuale/manuale_n7.d41567120e3bfda7b74704ba4a90a9bcb1d16998.woff") format("woff");
+    }
+
     :root {
       --ink: #111;
       --muted: #666;
@@ -13,6 +33,7 @@
       --paper: #fff;
       --pale: #f5f5f5;
       --deep: #111;
+      --site-font: "Manuale", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
     }
 
     * {
@@ -27,8 +48,9 @@
       margin: 0;
       background: var(--paper);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
-      line-height: 1.72;
+      font-family: var(--site-font);
+      font-weight: 300;
+      line-height: 1.8;
       letter-spacing: 0;
     }
 
@@ -46,19 +68,22 @@
 
     h1 {
       font-size: clamp(42px, 5.8vw, 82px);
-      line-height: 1.02;
+      font-weight: 300;
+      line-height: 1.08;
       margin-bottom: 24px;
     }
 
     h2 {
       font-size: clamp(30px, 3.5vw, 48px);
-      line-height: 1.18;
+      font-weight: 300;
+      line-height: 1.22;
       margin-bottom: 22px;
     }
 
     h3 {
       font-size: 19px;
-      line-height: 1.35;
+      font-weight: 300;
+      line-height: 1.42;
       margin-bottom: 10px;
     }
 
@@ -97,7 +122,7 @@
       border: 1px solid var(--line);
       font-size: 17px;
       font-weight: 700;
-      letter-spacing: .06em;
+      letter-spacing: 0;
       padding: 10px 12px;
       text-align: center;
     }
@@ -145,7 +170,7 @@
       color: var(--muted);
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: .12em;
+      letter-spacing: 0;
       margin-bottom: 12px;
       text-transform: uppercase;
     }
@@ -163,7 +188,7 @@
       color: var(--paper);
       display: inline-flex;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 300;
       justify-content: center;
       min-height: 48px;
       padding: 13px 22px;
@@ -195,7 +220,7 @@
       border: 1px solid var(--line);
       display: inline-block;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 300;
       padding: 7px 10px;
     }
 
@@ -272,7 +297,7 @@
     .concept-step span {
       border-right: 1px solid #777;
       font-size: 30px;
-      font-weight: 700;
+      font-weight: 300;
       line-height: 1;
       padding-right: 18px;
     }
@@ -441,7 +466,7 @@
       border: 1px solid var(--line);
       display: block;
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 300;
       margin-top: 10px;
       padding: 7px 8px;
       text-align: center;
@@ -710,7 +735,7 @@
         <div class="interest-cards">
           <article class="interest-card">
             <h3>胸元と手元に残る重み</h3>
-            <p>ペンダントトップは幅約20mm。リングはトップ部分に約18mmの存在感を持たせ、日常の装いに静かな強さを添えます。</p>
+            <p>チェーン付きペンダントは幅約20mmのトップを胸元に。リングはトップ部分に約18mmの存在感を持たせ、日常の装いに静かな強さを添えます。</p>
           </article>
           <article class="interest-card">
             <h3>裏面まで続くこだわり</h3>
@@ -721,8 +746,8 @@
             <p>牡羊座から魚座まで、星座ごとに形は異なります。自分の星座、大切な人の星座、惹かれる造形から選べます。</p>
           </article>
           <article class="interest-card">
-            <h3>完全受注生産</h3>
-            <p>注文を受けてから仕立てるため、納期は約1.5ヶ月。専用ケースと保証書を付属してお届けします。</p>
+            <h3>すぐに取り入れられるセット仕様</h3>
+            <p>ペンダントはチェーン付き。チェーンを別で探す必要がなく、届いた日からいつものコーディネートに合わせられます。</p>
           </article>
         </div>
       </div>
@@ -753,12 +778,12 @@
             <p>自分の星座、大切な人の星座、記念日の星座。身につける理由が自然に生まれる。</p>
           </div>
           <div class="compare-cell">
-            <h3>Delicate Jewelry</h3>
-            <p>繊細で軽い印象が強く、装いによっては物足りなさを感じることもある。</p>
+            <h3>Top Only</h3>
+            <p>ペンダントトップだけでは、手持ちのチェーンとの相性や太さを考える必要がある。</p>
           </div>
           <div class="compare-cell dark">
-            <h3>Tough & Sexy</h3>
-            <p>性別にとらわれない佇まい。強さと色気を、毎日のスタイルに重ねる。</p>
+            <h3>Chain Included</h3>
+            <p>トップとチェーンをセットで届けるため、合わせに悩まずすぐに身につけられる。</p>
           </div>
         </div>
       </div>
@@ -784,13 +809,13 @@
     <section class="section" id="collection">
       <p class="eyebrow">Collection</p>
       <h2>Sign of Zodiac Collection</h2>
-      <p class="lead">リングとペンダントトップで展開する、12星座のジュエリーコレクション。価格は¥693,000から。素材、サイズ、納期は各商品ページでご覧いただけます。</p>
+      <p class="lead">リングとチェーン付きペンダントで展開する、12星座のジュエリーコレクション。価格は¥693,000から。素材、サイズ、納期は各商品ページでご覧いただけます。</p>
       <div class="lineup-feature">
-        <div class="image-box"><span>GEMINI PENDANT TOP</span></div>
+        <div class="image-box"><span>GEMINI NECKLACE SET</span></div>
         <div class="feature-copy">
           <p class="eyebrow">Featured Item</p>
           <h3>Sign of Zodiac - 8TC01Y</h3>
-          <p>双子座 Gemini 5/21-6/21。750WG/YGのペンダントトップ。幅20mm、高さ20mmの中に、星座のレリーフと裏面アイコンを仕立てた一型です。</p>
+          <p>双子座 Gemini 5/21-6/21。750WG/YGのチェーン付きペンダント。幅20mm、高さ20mmのトップとチェーンをセットにし、届いた日からすぐに身につけられる一型です。</p>
           <a class="button" href="https://www.ruggedmind-shop.com/products/signofzodiacht08tc01y">8TC01Yを見る</a>
         </div>
       </div>
@@ -813,7 +838,7 @@
     <section class="section" id="faq">
       <p class="eyebrow">FAQ</p>
       <h2>よくあるご質問</h2>
-      <p class="lead">受注販売、納期、サイズ、アフターサービスについて、購入前に気になる内容をまとめました。</p>
+      <p class="lead">受注販売、納期、サイズ、チェーン、アフターサービスについて、購入前に気になる内容をまとめました。</p>
       <div class="faq-list">
         <article class="faq-item">
           <h3>Q. 受注販売ですか？</h3>
@@ -833,11 +858,15 @@
         </article>
         <article class="faq-item">
           <h3>Q. 素材やサイズはどこで確認できますか？</h3>
-          <p>A. 750WG、750YGなどの素材、トップ部分のサイズ、リングサイズは各商品ページに掲載しています。</p>
+          <p>A. 750WG、750YGなどの素材、トップ部分のサイズ、チェーンの仕様、リングサイズは各商品ページに掲載しています。</p>
         </article>
         <article class="faq-item">
-          <h3>Q. ペンダントトップにチェーンは付きますか？</h3>
-          <p>A. チェーンは商品により別売りです。お手持ちのチェーンや別売りチェーンでもお楽しみいただけます。</p>
+          <h3>Q. ペンダントにチェーンは付きますか？</h3>
+          <p>A. はい。今回のペンダントはチェーン付きのセット仕様です。トップとのバランスを考えて合わせているため、チェーンを別で選ぶ必要がありません。</p>
+        </article>
+        <article class="faq-item">
+          <h3>Q. 届いたらすぐに着けられますか？</h3>
+          <p>A. はい。チェーン付きでお届けするため、届いた日からすぐにいつものコーディネートに取り入れられます。</p>
         </article>
       </div>
     </section>
@@ -859,8 +888,8 @@
             <p>注文を受けてから職人が仕立てる完全受注生産。星座ごとの造形を丁寧に仕上げます。</p>
           </article>
           <article class="offer-card">
-            <h3>Care Included</h3>
-            <p>専用ケース、保証書、アフターサービスの案内を同梱。購入後も永く身につけられるよう支えます。</p>
+            <h3>Ready to Wear</h3>
+            <p>チェーン付きで届けるため、合わせを迷わずすぐに着用可能。いつもの装いにそのまま取り入れられます。</p>
           </article>
         </div>
       </div>
@@ -871,7 +900,7 @@
         <div>
           <p class="eyebrow">Collection</p>
           <h2>あなたの星座を選ぶ。</h2>
-          <p class="lead">リング、ペンダントトップ、12星座のバリエーションから、自分の星、大切な人の星をお選びください。</p>
+          <p class="lead">リング、チェーン付きペンダント、12星座のバリエーションから、自分の星、大切な人の星をお選びください。</p>
         </div>
         <a class="button" href="https://www.ruggedmind-shop.com/collections/sign-of-zodiac">Sign of Zodiacを見る</a>
       </div>

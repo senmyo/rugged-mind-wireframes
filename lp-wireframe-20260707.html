@@ -358,6 +358,52 @@
       padding: 24px;
     }
 
+    .compare-head {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      padding: 18px 24px;
+    }
+
+    .compare-head.dark {
+      background: var(--deep);
+      color: var(--paper);
+    }
+
+    .compare-head:nth-child(2n) {
+      border-right: 0;
+    }
+
+    .compare-head strong {
+      display: block;
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.35;
+    }
+
+    .compare-head span {
+      color: var(--muted);
+      display: block;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .compare-head.dark span {
+      color: #d8d8d8;
+    }
+
+    .compare-label {
+      color: var(--muted);
+      display: block;
+      font-size: 12px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .compare-cell.dark .compare-label {
+      color: #d8d8d8;
+    }
+
     .compare-cell:nth-child(2n) {
       border-right: 0;
     }
@@ -763,27 +809,41 @@
           <p class="lead">線で描かれた星座ではなく、彫刻として立ち上がる星座。華奢さではなく、強さと艶をまとったジェンダーレスな存在感。</p>
         </div>
         <div class="compare-table">
+          <div class="compare-head">
+            <strong>一般的な星座ジュエリー</strong>
+            <span>モチーフとして身につける</span>
+          </div>
+          <div class="compare-head dark">
+            <strong>RUGGED MIND</strong>
+            <span>造形と意味で身につける</span>
+          </div>
           <div class="compare-cell">
+            <span class="compare-label">Design</span>
             <h3>Line Motif</h3>
             <p>星座記号や線画をそのまま小さく身につける、ライトな印象のジュエリー。</p>
           </div>
           <div class="compare-cell dark">
+            <span class="compare-label">Design</span>
             <h3>Relief Sculpture</h3>
             <p>星座をレリーフとして彫り上げ、ローマコインのような陰影と奥行きを生む。</p>
           </div>
           <div class="compare-cell">
+            <span class="compare-label">Reason</span>
             <h3>Ornament</h3>
             <p>装飾としてのかわいらしさや流行感で選ぶ、季節性のあるモチーフ。</p>
           </div>
           <div class="compare-cell dark">
+            <span class="compare-label">Reason</span>
             <h3>Personal Symbol</h3>
             <p>自分の星座、大切な人の星座、記念日の星座。身につける理由が自然に生まれる。</p>
           </div>
           <div class="compare-cell">
+            <span class="compare-label">Usability</span>
             <h3>Top Only</h3>
             <p>ペンダントトップだけでは、手持ちのチェーンとの相性や太さを考える必要がある。</p>
           </div>
           <div class="compare-cell dark">
+            <span class="compare-label">Usability</span>
             <h3>Chain Included</h3>
             <p>トップとチェーンをセットで届けるため、合わせに悩まずすぐに身につけられる。</p>
           </div>

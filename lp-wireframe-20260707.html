@@ -447,41 +447,20 @@
       text-align: center;
     }
 
-    .trust-layout {
-      display: grid;
-      gap: 36px;
-      grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
-      align-items: start;
-    }
-
-    .voice-list,
     .faq-list {
       display: grid;
-      gap: 14px;
+      gap: 18px;
+      margin-top: 34px;
     }
 
-    .voice-card,
     .faq-item {
       border: 1px solid var(--line);
-      padding: 22px;
+      padding: 30px 34px;
     }
 
-    .voice-card p,
     .faq-item p {
       color: var(--muted);
-      font-size: 14px;
-    }
-
-    .care-grid {
-      display: grid;
-      gap: 18px;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin-top: 28px;
-    }
-
-    .care-card {
-      border: 1px solid var(--line);
-      padding: 22px;
+      font-size: 15px;
     }
 
     .offer-band {
@@ -574,7 +553,6 @@
       .interest-layout,
       .comparison,
       .lineup-feature,
-      .trust-layout,
       .offer-band .section,
       .final-cta,
       .footer-inner {
@@ -606,7 +584,6 @@
 
       .zodiac-grid,
       .proof-grid,
-      .care-grid,
       .offer-cards {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -636,9 +613,12 @@
 
       .zodiac-grid,
       .proof-grid,
-      .care-grid,
       .offer-cards {
         grid-template-columns: 1fr;
+      }
+
+      .faq-item {
+        padding: 24px;
       }
 
       .feature-copy {
@@ -830,43 +810,11 @@
       </div>
     </section>
 
-    <section class="section" id="trust">
-      <div class="trust-layout">
-        <div>
-          <p class="eyebrow">Relief</p>
-          <h2>永く身につけるための安心。</h2>
-          <p class="lead">完全受注生産のジュエリーだからこそ、素材、サイズ、納期、アフターサービスまで丁寧にご案内します。</p>
-        </div>
-        <div class="voice-list">
-          <article class="voice-card">
-            <h3>専用ケース・保証書付き</h3>
-            <p>商品には専用ケースと保証書を付属。贈り物としても、自分の節目のジュエリーとしても選べます。</p>
-          </article>
-          <article class="voice-card">
-            <h3>素材とサイズを明記</h3>
-            <p>750WG、750YGなどの素材、トップ部分のサイズ、リングサイズは商品ページに掲載しています。</p>
-          </article>
-          <article class="voice-card">
-            <h3>修理・メンテナンス対応</h3>
-            <p>サイズ直し、修理、メンテナンスは、保証書の有無や商品の型番、ご希望内容を確認のうえご案内します。</p>
-          </article>
-        </div>
-      </div>
-      <div class="care-grid">
-        <article class="care-card">
-          <h3>納期</h3>
-          <p>約1.5ヶ月。年末年始やお盆前後など、時期により前後する場合があります。</p>
-        </article>
-        <article class="care-card">
-          <h3>リングサイズ</h3>
-          <p>商品により#15から#25まで展開。サイズ直し対応の可否は各商品ページでご確認いただけます。</p>
-        </article>
-        <article class="care-card">
-          <h3>ペンダントトップ</h3>
-          <p>チェーンは商品により別売り。お手持ちのチェーンや別売りチェーンでも楽しめます。</p>
-        </article>
-      </div>
-      <div class="faq-list" style="margin-top: 18px;">
+    <section class="section" id="faq">
+      <p class="eyebrow">FAQ</p>
+      <h2>よくあるご質問</h2>
+      <p class="lead">受注販売、納期、サイズ、アフターサービスについて、購入前に気になる内容をまとめました。</p>
+      <div class="faq-list">
         <article class="faq-item">
           <h3>Q. 受注販売ですか？</h3>
           <p>A. はい。Sign of Zodiacは完全受注生産の商品を中心に展開しています。</p>
@@ -878,6 +826,18 @@
         <article class="faq-item">
           <h3>Q. 修理やケアは依頼できますか？</h3>
           <p>A. サイズ直し、修理、メンテナンスのご相談を承っています。保証書と商品の型番をご確認ください。</p>
+        </article>
+        <article class="faq-item">
+          <h3>Q. 専用ケースや保証書は付きますか？</h3>
+          <p>A. 商品には専用ケースと保証書を付属しています。贈り物や記念のジュエリーとしてもお選びいただけます。</p>
+        </article>
+        <article class="faq-item">
+          <h3>Q. 素材やサイズはどこで確認できますか？</h3>
+          <p>A. 750WG、750YGなどの素材、トップ部分のサイズ、リングサイズは各商品ページに掲載しています。</p>
+        </article>
+        <article class="faq-item">
+          <h3>Q. ペンダントトップにチェーンは付きますか？</h3>
+          <p>A. チェーンは商品により別売りです。お手持ちのチェーンや別売りチェーンでもお楽しみいただけます。</p>
         </article>
       </div>
     </section>
